@@ -4,4 +4,5 @@ setup(name='openface',
       description="Face recognition with Google's FaceNet deep neural network.",
       url='https://github.com/yarnbasket/openface',
       packages=['openface','openface.alignment'],
+      package_data={'openface': ['*.lua']},
   )
