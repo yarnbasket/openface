@@ -34,8 +34,8 @@ class TorchWrap:
 
     def __init__(self, model=os.path.join(myDir, '..', 'models', 'openface', 'nn4.v1.t7'),
                  imgDim=96, cuda=False):
-        self.cmd = ['/usr/bin/env', 'th', os.path.join(myDir, 'openface_server.lua'),
-                    '-model', model, '-imgDim', str(imgDim)]
+        self.cmd = ['/bin/bash', '-l', '-c',
+                    'th ' + os.path.join(myDir, 'openface_server.lua') + ' -model ' + model + ' -imgDim ' + str(imgDim)]
         if cuda:
             self.cmd.append('-cuda')
         self.p = Popen(self.cmd, stdin=PIPE, stdout=PIPE,
